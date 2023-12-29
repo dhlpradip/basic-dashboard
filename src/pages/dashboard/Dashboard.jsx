@@ -55,10 +55,9 @@ const Dashboard = () => {
     }
   }, [subscriptions, users]);
 
-  console.log({ subCount });
 
   if (!subCount) {
-    return "Loading..";
+    return "Error!";
   }
 
   return (

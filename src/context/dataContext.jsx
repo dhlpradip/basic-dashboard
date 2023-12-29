@@ -52,7 +52,6 @@ const DataContextProvider = ({children}) => {
                             (subscription) => parseInt(subscription.user_id) === user.id
                         )?.expires_on || "-",
                 }));
-                console.log({combined});
                 setCombinedData(combined);
             }
         }

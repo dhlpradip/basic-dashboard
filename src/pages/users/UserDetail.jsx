@@ -8,8 +8,10 @@ import "../../styles/userdetail.css";
 const UserDetail = () => {
   const [userData, setUserData] = useState();
   const [showPassword, setShowPassword] = useState(false);
-  const { combinedData } = useContext(DataContext);
+  const { combinedData, setPageTitle } = useContext(DataContext);
   const { id } = useParams();
+
+  setPageTitle("User Details");
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -30,9 +32,6 @@ const UserDetail = () => {
   }
   return (
     <>
-      <div className="top-bar">
-        <h3>User Detail</h3>
-      </div>
       <div className="main-content">
         <div className="user-container">
           <div  className="card">

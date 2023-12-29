@@ -1,27 +1,38 @@
-import { LuLayoutDashboard, LuUsers } from "react-icons/lu";
-import "../../styles/sidebar.css";
 import { Link, Outlet, useLocation } from "react-router-dom";
-
+import { useContext } from "react";
+import { DataContext } from "../../context/dataContext";
+import { sidebarItems } from "../../store/sidebar-store";
+import "../../styles/sidebar.css";
 
 export const Sidebar = () => {
   const location = useLocation();
-
-  console.log({location})
+  const { pageTitle } = useContext(DataContext);
+  const sidebarItemList = sidebarItems();
+  const pathToCompare = location.pathname === "/" ? "/" : "/users";
+  
   return (
     <>
       <div className="sidebar">
         <h2>Demo Site</h2>
-        <Link to="/" className={location.pathname === "/" ? "sidebar-link-active" :  "sidebar-link"} >
-          {" "}
-          <LuLayoutDashboard className={location.pathname === "/" ? "icon-active" :  "icon"} /> <span>Dashboard</span>
-        </Link>
-        <Link to="/users" className={location.pathname.match("/users") ? "sidebar-link-active" :  "sidebar-link"} >
-          {" "}
-          <LuUsers className={location.pathname.match("/users") ? "icon-active" :  "icon"} /> <span>Users</span>
-        </Link>
+        {sidebarItemList.map((item, index) => (
+          <Link
+            key={index}
+            to={item.pathname}
+            className={
+              `sidebar-link ` +
+              (pathToCompare === item.pathname ? "active" : "")
+            }
+          >
+            {item.icon}
+            <span>{item.title}</span>
+          </Link>
+        ))}
       </div>
       <div className="content">
-        <Outlet/>
+        <div className="top-bar">
+          <h3 className="page-title">{pageTitle}</h3>
+        </div>
+        <Outlet />
       </div>
     </>
   );

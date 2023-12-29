@@ -1,73 +1,66 @@
-
 .sidebar {
-    height: 100%;
-    width: var(--sidebar-width);
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color:var(--sidebar-background);
-    overflow-x: hidden;
-    padding-top: 16px;
-    box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2);
-  }
-  
+  height: 100%;
+  width: var(--sidebar-width);
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: var(--sidebar-background);
+  overflow-x: hidden;
+  padding-top: 16px;
+  box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2);
+}
 
-  .sidebar h2 {
-    color: var(--sidebar-primary-color);
-    padding: 0px 8px 16px 32px;
-    margin-top:16px;
-  }
-  
-  .sidebar-link {
-    padding: 0 8px 16px 32px;
-    text-decoration: none;
-    font-size: var(--sidebar-font-size);
-    color: var(--sidebar-secondary-color);
-    display: block;
-  }
+.sidebar h2 {
+  color: var(--sidebar-primary-color);
+  padding: 0px 8px 16px 32px;
+  margin-top: 16px;
+}
 
-  .sidebar-link-active{
-    padding: 0 8px 16px 32px;
-    text-decoration: none;
-    font-size: var(--sidebar-selected-font-size);
-    color: var(--sidebar-primary-color);
-    display: block;
-  }
+.sidebar-link {
+  padding: 16px 8px 16px 32px;
+  text-decoration: none;
+  font-size: var(--sidebar-font-size);
+  color: var(--sidebar-secondary-color);
+  display: block;
+}
 
-  .icon{
-    height: 1rem;
-    width: 1rem;
-  }
+.sidebar-link.active {
+  background-color: var(--sidebar-primary-color);
+  color: var(--sidebar-background) !important;
+}
 
-  .icon-active{
-    height: var(--sidebar-selected-icon-size);
-    width: var(--sidebar-selected-icon-size);
-  }
+.icon {
+  height: 1rem;
+  width: 1rem;
+  margin-right:5px;
+}
 
-  .sidebar-link:hover {
-    color: var(--sidebar-primary-color);
-  }
-  
-  .sidebar-link:focus{
-    color: var(--sidebar-primary-color);
-  }
+.sidebar-link:hover {
+  color: var(--sidebar-primary-color);
+}
 
+.sidebar-link:focus {
+  color: var(--sidebar-primary-color);
+}
 
-  @media screen and (max-width:768px){
+@media screen and (max-width: 768px) {
   .sidebar {
-  padding-top: 32px;
+    padding-top: 32px;
   }
-  .sidebar span{
-  display:none;
+  .sidebar span {
+    display: none;
   }
-  .sidebar h2{
-    display:none;
+  .sidebar h2 {
+    display: none;
   }
+}
 
+@media screen and (max-height: 450px) {
+  .sidebar {
+    padding-top: 15px;
   }
-  
-  @media screen and (max-height: 450px) {
-    .sidebar {padding-top: 15px;}
-    .sidebar a {font-size: 18px;}
+  .sidebar a {
+    font-size: 18px;
   }
+}

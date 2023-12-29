@@ -13,12 +13,14 @@ import {
   ResponsiveContainer,
   Pie,
   PieChart,
-  Cell
+  Cell,
 } from "recharts";
 
 const Dashboard = () => {
   const [subCount, setSubCount] = useState();
-  const { users, subscriptions } = useContext(DataContext);
+  const { users, subscriptions, setPageTitle } = useContext(DataContext);
+
+  setPageTitle("Dashboard");
 
   const cardColors = [
     "#ffcccc",
@@ -61,9 +63,6 @@ const Dashboard = () => {
 
   return (
     <>
-      <div className="top-bar">
-        <h3>Dashboard</h3>
-      </div>
       <div className="main-content">
         <p className="header-text">Subscription Summary</p>
         <div className="grid-container-dashboard">
@@ -112,23 +111,26 @@ const Dashboard = () => {
                 </ResponsiveContainer>
               </div>
               <div className="card-dashboard">
-              <PieChart width={500} height={300}>
-              <Pie
-            data={subCount}
-            cx="50%"
-            cy="50%"
-            labelLine={false}
-            // label={renderCustomizedLabel}
-            outerRadius={100}
-            fill="#8884d8"
-            dataKey="count"
-          >
-            {subCount.map((entry, index) => (
-              <Cell key={`cell-${index}`} fill={cardColors[index % cardColors.length]} />
-            ))}
-          </Pie>
-          <Tooltip />
-        </PieChart>
+                <PieChart width={400} height={300}>
+                  <Pie
+                    data={subCount}
+                    cx="50%"
+                    cy="50%"
+                    labelLine={false}
+                    // label={renderCustomizedLabel}
+                    outerRadius={100}
+                    fill="#8884d8"
+                    dataKey="count"
+                  >
+                    {subCount.map((entry, index) => (
+                      <Cell
+                        key={`cell-${index}`}
+                        fill={cardColors[index % cardColors.length]}
+                      />
+                    ))}
+                  </Pie>
+                  <Tooltip />
+                </PieChart>
               </div>
             </div>
           </div>

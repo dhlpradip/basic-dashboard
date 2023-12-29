@@ -5,8 +5,10 @@ import {FcApproval, FcHighPriority} from "react-icons/fc"
 import {useNavigate} from "react-router-dom"
 
 const Users = () => {
-  const { combinedData, isLoading, error } = useContext(DataContext);
-  const navigate = useNavigate()
+  const { combinedData, isLoading, error, setPageTitle } = useContext(DataContext);
+  const navigate = useNavigate();
+
+  setPageTitle("Users");
 
   const onRowClick = (value)=>{
     navigate(`/users/${value.id}`)
@@ -36,9 +38,6 @@ const Users = () => {
 
   return (
     <>
-      <div className="top-bar">
-        <h3>Users</h3>
-      </div>
       <div className="main-content">
         <p className="muted">Click on each row for user details</p>
         <Table

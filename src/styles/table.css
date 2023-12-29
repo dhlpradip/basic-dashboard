@@ -1,61 +1,70 @@
-/* Table.css */
 
 .table-container {
-    margin: 20px;
-    overflow-x: auto;
-  }
-  
-  .data-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
-  }
-  
-  .data-table th,
-  .data-table td {
-    padding: 12px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .data-table th {
-    background-color: var(--table-header-color);
-  }
+  margin: 20px;
+  overflow-x: auto;
+}
 
-  .data-table tr:hover {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .search-input {
-    margin-bottom: 10px;
-    padding: 8px;
-  }
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
 
-  .filter-input input{
-    padding:5px;
-    margin-top:10px;
-    text-decoration: none;
-    width:100px;
+.data-table th,
+.data-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
 
-  }
-  .filter-input select{
-    padding:5px;
-    margin-top:10px;
-    text-decoration: none;
-    max-width: min-content;
-  }
-  
-  button {
-    margin: 0 5px;
-    cursor: pointer;
-  }
+.data-table th {
+  background-color: var(--table-header-color);
+  color: #ffffff;
+}
 
-  button:disabled{
-    cursor: not-allowed ;
-  }
+.data-table tr:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
-  .pagination{
-    margin-top: 20px;
-    text-align: center;
-  }
-  
+.search-input {
+  margin-bottom: 10px;
+  padding: 8px;
+}
+
+.filter-input input{
+  padding:5px;
+  margin-top:10px;
+  text-decoration: none;
+  width:100px;
+
+}
+
+
+button {
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+button:disabled{
+  cursor: not-allowed ;
+}
+
+.pagination{
+  display: flex;
+  justify-content: end;
+  gap:2rem;
+  margin-top: 20px;
+  text-align: end;
+}
+
+.pagination select{
+  border: none;
+  max-width: min-content;
+}
+
+.pagination button{
+  background-color: #fff;
+  border:1px solid #eee;
+  border-radius:5px;
+}
+

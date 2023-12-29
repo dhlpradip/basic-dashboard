@@ -143,34 +143,7 @@ const Table = ({ data, columns, isLoading, error, onRowClick }) => {
 
       <div className="pagination">
         <span>
-          Page{" "}
-          <strong>
-            {state.pageIndex + 1} of {pageOptions.length}
-          </strong>{" "}
-        </span>
-        <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
-          {"<<"}
-        </button>
-        <button onClick={() => previousPage()} disabled={!canPreviousPage}>
-          {"<"}
-        </button>
-        <button onClick={() => nextPage()} disabled={!canNextPage}>
-          {">"}
-        </button>
-        <button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
-          {">>"}
-        </button>
-        <span className="filter-input">
-          | Go to page:{" "}
-          <input
-            type="number"
-            defaultValue={state.pageIndex + 1}
-            onChange={(e) => {
-              const page = e.target.value ? Number(e.target.value) - 1 : 0;
-              gotoPage(page);
-            }}
-            style={{ width: "50px", marginRight: "10px" }}
-          />
+          Rows per page:{" "}
           <select
             value={pageSize}
             onChange={(e) => {
@@ -179,10 +152,32 @@ const Table = ({ data, columns, isLoading, error, onRowClick }) => {
           >
             {[10, 20, 30, 40, 50].map((pageSize) => (
               <option key={pageSize} value={pageSize}>
-                Show {pageSize}
+                {pageSize}
               </option>
             ))}
           </select>
+        </span>
+        <span>
+          Page {" "}
+            {state.pageIndex + 1} of {pageOptions.length}
+        </span>
+
+        <span>
+          <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
+            {"<<"}
+          </button>
+          <button onClick={() => previousPage()} disabled={!canPreviousPage}>
+            {"<"}
+          </button>
+          <button onClick={() => nextPage()} disabled={!canNextPage}>
+            {">"}
+          </button>
+          <button
+            onClick={() => gotoPage(pageCount - 1)}
+            disabled={!canNextPage}
+          >
+            {">>"}
+          </button>
         </span>
       </div>
     </div>
